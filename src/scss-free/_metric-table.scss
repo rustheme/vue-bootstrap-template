@@ -1,0 +1,41 @@
+.metric-table__label {
+  font-size: 11px;
+  font-size: 12.57px;
+  font-weight: $headings-font-weight;
+  letter-spacing: 0;
+  line-height: 20px;
+  line-height: 1.818;
+  opacity: .77;
+}
+
+.metric-table__value {
+  font-size: 18px;
+  font-size: 20.57px;
+  font-weight: $headings-font-weight;
+  line-height: 22px;
+  line-height: 1.222;
+}
+
+.metric-table__delta {
+  font-size: 12px;
+  font-size: 13.71px;
+  font-weight: $headings-font-weight;
+  line-height: 15px;
+  line-height: 1.25;
+
+  &--success {
+    color: $brand-success;
+  }
+
+  &--info {
+    color: $brand-info;
+  }
+
+  &--warning {
+    color: $brand-warning;
+  }
+
+  &--danger {
+    color: $brand-danger;
+  }
+}

@@ -1,0 +1,28 @@
+.chip {
+
+  @include rtl-reflexive-box(margin, right, .312rem);
+  display: inline-block;
+  height: 24px;
+  margin-bottom: .312rem;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background-color: $gray-lighter;
+  background-color: $brand-primary;
+  color: $gray-light;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: darken($gray-lighter, 3.75);
+    color: darken($gray-light, 3.75);
+  }
+
+  &--primary {
+  }
+}

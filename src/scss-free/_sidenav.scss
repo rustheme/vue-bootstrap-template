@@ -1,0 +1,56 @@
+@import "mixins/rtl";
+
+.nav-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.mdc-temporary-drawer {
+  &__drawer {
+    @include rtl {
+      transform: translateX(calc(100% + 20px));
+    }
+
+    background-color: #fff;
+    transform: translateX(calc(-100% - 20px));
+  }
+
+  .mdc-list-group {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .mdc-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 36px;
+    line-height: 36px;
+
+    position: relative;
+    padding-right: $spacer-x;
+    padding-left: $spacer-x;
+    outline: none;
+    color: inherit;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    letter-spacing: .02em;
+    text-decoration: none;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .mdc-list-subheader {
+    margin: 24px 0 12px;
+    padding-right: $spacer-x;
+    padding-left: $spacer-x;
+    color: rgba(0, 0, 0, .654);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 16px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}

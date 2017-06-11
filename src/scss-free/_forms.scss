@@ -1,0 +1,22 @@
+@import "mixins/rtl";
+
+// Form control on dark background
+.form-control {
+  @at-root .theme--dark {
+     .form-control {
+      background-color: rgba(255, 255, 255, .175);
+      border-color: rgba(255, 255, 255, .2);
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, .5);
+    }
+  }
+}
+
+/* stylelint-disable selector-no-type */
+.form-inline label {
+  @include rtl-reflexive-box(margin, right, .75rem);
+}
+/* stylelint-enable selector-no-type */

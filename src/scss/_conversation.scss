@@ -1,0 +1,669 @@
+@import "mixins/rtl";
+/*
+.conversation {
+  display: flex;
+  position: relative;
+  flex: 2 0 0%;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid $gray-lighter;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.conversation-bubbles {
+  position: relative;
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.conversation-reply {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  border-top: 1px solid $gray-lighter;
+  background-color: #f1f4f7;
+}
+
+.conversation-reply .avatar {
+  @include rtl-reflexive-box(margin, right, 1rem);
+}
+
+.conversation-reply input {
+  flex: 1;
+  vertical-align: middle;
+  overflow-y: auto;
+}
+
+.conversation-form__actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.conversation__input-wrapper {
+  display: flex;
+}
+
+.conversation__input {
+  max-height: 2rem;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  outline: none;
+  resize: vertical;
+}
+
+.conversation__input-actions {
+  display: flex;
+}
+
+// Bubble
+.bubble {
+  display: inline-block;
+  max-width: 365.2px;
+  margin: 10px 0;
+  padding: 12.1px 16.5px;
+  border: 1px solid $gray-lighter;
+  border-radius: .937rem;
+  background-color: #fff;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .bubble {
+    max-width: 298.8px;
+    padding: 10.8px 13.5px;
+    border: 1.8px solid $gray-lighter;
+    border-radius: 13.5px;
+    font-size: 14.4px;
+    line-height: 21.6px;
+  }
+}
+
+.bubble--filled,
+.bubble--user,
+.bubble--user2 {
+  background-color: $gray-lighter;
+}
+
+.bubble.is-active {
+  // opacity: 1;
+}
+
+.conversation {
+  overflow: hidden;
+}
+
+.conversation .container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 100px 20px 100px 90px;
+  box-shadow: inset 0 200px 200px -200px #fff, inset 0 -200px 200px -200px #fff;
+}
+
+// 1080px
+@media only screen and (max-width: 1080px) {
+  .conversation .container {
+
+    @include rtl-reflexive-box(padding, left, 20px);
+    max-width: 940px;
+  }
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation .container {
+    display: block;
+    padding: 60px 0;
+  }
+}
+
+.conversation .container::after,
+.conversation .container::before {
+  @include rtl-reflexive-position(left, 0);
+
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  content: "";
+  visibility: visible;
+  z-index: 2;
+  pointer-events: none;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation .container::after,
+  .conversation .container::before {
+    display: none;
+  }
+}
+
+.conversation .container::after {
+  bottom: 0;
+  background-image: linear-gradient(to top, #fff, rgba(255, 255, 255, .001));
+}
+
+.conversation .container::before {
+  top: 0;
+  background-image: linear-gradient(to bottom, #fff, rgba(255, 255, 255, .001));
+}
+
+.conversation__descriptions {
+  width: 33%;
+  max-width: 380px;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__descriptions {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+}
+
+.conversation__description {
+  position: relative;
+  padding: 20px 0;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__description {
+    padding: 0 0 20px;
+  }
+}
+
+.conversation__description .description__heading {
+  margin-bottom: 10px;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__description .description__heading {
+    margin-top: 0;
+  }
+}
+
+.conversation__description .description__text {
+  line-height: 2em;
+}
+
+.conversation__animations {
+  position: relative;
+  margin: 0 auto;
+  transition: opacity .5s;
+}
+
+.conversation__animations.is-hiding {
+  // opacity: 0;
+}
+
+// 1139px
+@media only screen and (max-width: 1139px) {
+  .conversation__animations {
+    position: static;
+    width: calc(55% - 20px);
+    float: right;
+  }
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__animations {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    float: none;
+  }
+}
+
+// 1700px
+@media only screen and (min-width: 1700px) {
+  .conversation__animations {
+    height: 700px;
+  }
+}
+
+.conversation__animation {
+  margin: 0 auto;
+  transition: opacity .3s;
+  opacity: 0;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__animation {
+    width: 370.8px;
+    transform: translateY(0) !important;
+  }
+}
+
+// 1700px
+@media only screen and (min-width: 1700px) {
+  .conversation__animation {
+    width: 556.2px;
+  }
+}
+
+// 400px
+@media only screen and (max-width: 400px) {
+  .conversation__animation {
+    width: 288.4px;
+  }
+}
+
+.conversation__animation:nth-child(n+2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.conversation__animation.is-active {
+  // opacity: 1;
+}
+
+.conversation__animation.is-animated {
+  transition: transform .6s cubic-bezier(.825, .005, .18, .995);
+  will-change: transform;
+}
+
+.conversation__bubble {
+  display: block;
+  position: relative;
+  // transform: translateY(210px);
+  transition: transform .6s cubic-bezier(.2, 0, .2, 1), opacity .5s;
+  transition-delay: .3s;
+  will-change: transform;
+}
+
+.conversation__bubble--user,
+.conversation__bubble--user2 {
+  @include rtl {
+    text-align: left;
+  }
+
+  text-align: right;
+}
+
+.conversation__bubble--user .bubble,
+.conversation__bubble--user2 .bubble {
+  @include rtl {
+    text-align: right;
+  }
+
+  text-align: left;
+}
+
+.conversation__bubble--user2 {
+  @include rtl {
+    text-align: right;
+  }
+
+  text-align: left;
+}
+
+.conversation__bubble--assistant .bubble {
+  margin-left: 64px;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__bubble--assistant .bubble {
+    margin-left: 48px;
+  }
+}
+
+// 1700px
+@media only screen and (min-width: 1700px) {
+  .conversation__bubble--assistant .bubble {
+    margin-left: 92px;
+  }
+}
+
+// 400px
+@media only screen and (max-width: 400px) {
+  .conversation__bubble--assistant .bubble {
+    margin-left: 32px;
+  }
+}
+
+.conversation__bubble--replay {
+  margin-top: 80px;
+  transform: none;
+  text-align: center;
+  // opacity: 0;
+}
+
+.conversation__bubble--replay.is-active {
+  // opacity: 1;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__bubble--replay {
+    display: none;
+  }
+}
+
+.conversation__bubble.is-active {
+  transform: translateY(0);
+}
+
+.conversation__bubble.is-active .conversation__molecule {
+  opacity: 1;
+}
+
+.conversation__bubble.has-gap {
+  margin-top: 75px;
+}
+
+.conversation__bubble.is-leaving {
+  opacity: .5;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__bubble.is-leaving {
+    opacity: 1;
+  }
+}
+
+.conversation__bubble .bubble {
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s;
+  vertical-align: middle;
+}
+
+// 400px
+@media only screen and (max-width: 400px) {
+  .conversation__bubble .bubble {
+    max-width: 232.4px;
+    padding: 8.4px 10.5px;
+    border: 1.4px solid $gray-lighter;
+    border-radius: 10.5px;
+    font-size: 11.2px;
+    line-height: 16.8px;
+  }
+}
+
+.conversation__card {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  transform: translateY(210px);
+  transition: opacity 1.2s, transform 1s cubic-bezier(.2, 0, .2, 1);
+  transition-delay: .3s;
+  border-radius: 2px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .18);
+  // opacity: 0;
+}
+
+.conversation__card.is-active {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.conversation__card--multi {
+  font-size: 0;
+  box-shadow: none;
+}
+
+.conversation__card--multi img {
+  display: inline-block;
+  width: 30%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .18);
+}
+
+.conversation__card--multi img:nth-child(2) {
+  margin: 0 5%;
+}
+
+.conversation__face {
+  display: inline-block;
+  margin-right: 10px;
+  transition: opacity .75s;
+  transition-delay: .3s;
+  // opacity: 0;
+  vertical-align: middle;
+}
+
+// 1700px
+@media only screen and (min-width: 1700px) {
+  .conversation__face {
+    margin-right: 25px;
+    margin-left: 13px;
+  }
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__face {
+    margin-right: 1px;
+  }
+}
+
+.help-bubbles__bubble.is-active .conversation__face {
+  // opacity: 1;
+}
+
+.conversation__annotation {
+  width: 305.063px;
+  margin-bottom: 5px;
+  margin-left: 64px;
+  transition: opacity .75s .3s;
+  color: #8c8c8c;
+  color: inherit;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 300;
+  text-align: right;
+  opacity: 0;
+  opacity: .6;
+}
+
+.help-bubbles__bubble.is-active .conversation__annotation {
+  opacity: 1;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__annotation {
+    width: 249.597px;
+    margin-left: 48px;
+  }
+}
+
+// 1700px
+@media only screen and (min-width: 1700px) {
+  .conversation__annotation {
+    width: 374.3955px;
+    margin-left: 92px;
+  }
+}
+
+// 400px
+@media only screen and (max-width: 400px) {
+  .conversation__annotation {
+    width: 194.131px;
+    margin-left: 32px;
+  }
+}
+*/
+
+/*
+.conversation__molecule {
+  display: inline-block;
+  position: absolute;
+  top: -20px;
+  left: -28px;
+  width: 110px;
+  height: 110px;
+  transition: opacity .75s;
+  transition-delay: .3s;
+  opacity: 0;
+  vertical-align: middle;
+  z-index: -1;
+}
+
+// 800px
+@media only screen and (max-width: 800px) {
+  .conversation__molecule {
+    top: -14px;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+// 1700px
+@media only screen and (min-width: 1700px) {
+  .conversation__molecule {
+    top: -26px;
+    width: 135px;
+    height: 135px;
+  }
+}
+
+// 400px
+@media only screen and (max-width: 400px) {
+  .conversation__molecule {
+    top: -10px;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.conversation__molecule .molecule {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+*/
+
+// Media-list conversation
+.media-list-conversation .media-body-text {
+  position: relative;
+  padding: .75rem 1rem;
+  background-color: #fff;
+  border-radius: 9px;
+  border: 1px solid $gray-lighter;
+}
+
+.conversation__avatar {
+  margin-right: 5px;
+}
+
+/* wd */
+.conversation__bubble,
+.media-list-conversation .media {
+  display: flex;
+  max-width: 300px;
+}
+
+.bubble,
+.media-list-conversation .media-body {
+  margin-left: .75rem;
+}
+
+.bubble--user1,
+.media-list-conversation .media-current-user .media-body {
+  margin-right: .75rem;
+}
+
+.bubble--user2,
+.media-list-conversation .media-body-text {
+  display: inline-block;
+  text-align: left;
+}
+
+.bubble--user1,
+.media-list-conversation .media-current-user {
+  text-align: right;
+  margin-left: auto;
+}
+
+/*
+@media (min-width: 768px) {
+  .media-list-conversation .media-body-text,
+  .media-list-conversation .media-footer  {
+    max-width: 55%;
+  }
+
+  .media-list-conversation .media-current-user .media-body-text,
+  .media-list-conversation .media-current-user .media-footer {    
+    margin-left: auto;
+  }
+}
+*/
+/* endwd */
+
+.bubble + .bubble,
+.media-list-conversation .media-body-text + .media-body-text {
+  margin-top: 5px;
+}
+
+.media-list-conversation .media-body-text:first-child:before {
+  position: absolute;
+  top: 16px;
+  left: -8px;
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid $gray-lighter;
+}
+
+.media-list-conversation .media-body-text:first-child:after {
+  position: absolute;
+  top: 16px;
+  left: -7px;
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #fff;
+}
+
+.media-list-conversation .media-footer a {
+  font-weight: 400;
+}
+
+.bubble--user1,
+.media-list-conversation .media-current-user .media-body-text {
+  color: #fff;
+  background-color: $brand-primary;
+}
+
+.media-list-conversation .media-current-user .media-body-text:first-child:before {
+  left: auto;
+  right: -8px;
+  margin-left: 0;
+  margin-right: 2px;
+  border-right: 0;
+  border-left: 6px solid $brand-primary;
+}
+
+.media-list-conversation .media-current-user .media-object {
+  margin-left: 5px;
+  margin-right: 0;
+}
